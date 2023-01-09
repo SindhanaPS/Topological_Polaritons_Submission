@@ -112,28 +112,6 @@ if flag1 == 2:
         S21[i,j] = data8[k,5]
         S31[i,j] = data8[k,6]
 
-# 2D Berry curvature from Stokes vector
-if flag1 == 2:
-
-    data9 = np.loadtxt('cav_berry_stokes_0.txt')
-    data10 = np.loadtxt('cav_berry_stokes_1.txt')
-
-    # Berry curvature
-    kind1 = data9[:,0]
-    kind2 = data9[:,1]
-
-    kx4=np.zeros((Nk-1,Nk-1),dtype=float)
-    ky4=np.zeros((Nk-1,Nk-1),dtype=float)
-    FS0=np.zeros((Nk-1,Nk-1),dtype=float)
-    FS1=np.zeros((Nk-1,Nk-1),dtype=float)
-
-    for k in range(len(kind1)):
-        i = int(kind1[k])
-        j = int(kind2[k])
-        kx4[i,j] = data9[k,2]
-        ky4[i,j] = data9[k,3]
-        FS0[i,j] = data9[k,4]
-        FS1[i,j] = data10[k,4]
 
 ######################################################
 #                 Formatting                         #

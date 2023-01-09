@@ -8,5 +8,6 @@ The code 'cav_mol_k_space.py' with:
 4) pset=2 and flag1=2 can generate Figure 5c of the manuscript (with fp=0.4 and fm=0.6)
 5) pset=3 and flag1=2 can generate Figure 5f of the manuscript (with fp=0.3 and fm=0)
 
+maxk should be set to 100 to obtain the correct Chern numbers
 
 #######################################################################################

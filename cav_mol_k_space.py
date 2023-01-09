@@ -8,6 +8,9 @@ Nk = 101               # has to be odd
 fp = 0.3                 # dimensionless  fdown (for Ce:YAG)
 fm = 0                # dimensionless    fup (for Ce:YAG)
 
+# in \mu m^{-1} i.e. (micro meter)^{-1}
+maxk = 13
+
 ##### pset = 1 we will use parameter set porphyrin
 ##### pset = 2 we will use parameter set Ce:YAG
 ##### pset = 3 we will use parameter set monolayer MoS2
@@ -97,9 +100,6 @@ if pset == 3:
 
 ##############################################
 
-# in \mu m^{-1} i.e. (micro meter)^{-1}
-maxk = 13
-
 # Grid in k-space
 Kx = np.linspace(-maxk,maxk,num=Nk)
 Ky = np.linspace(-maxk,maxk,num=Nk)
@@ -143,28 +143,6 @@ if flag1 == 2:
     # Berry curvature using a 2-band approximate Stokes vector
     fname0S = 'cav_stokes_0.txt'
     fname1S = 'cav_stokes_1.txt'
-    fname14 = 'cav_berry_stokes_0.txt'
-    fname15 = 'cav_berry_stokes_1.txt'
 
     S01,S02,S03 = Stokes(Nk,kx,ky,v,0,fname0S)
     S11,S12,S13 = Stokes(Nk,kx,ky,v,1,fname1S)
-
-    bp0,bm0 = VectorFromStokes(Nk,kx,ky,S01,S02,S03)
-    bp1,bm1 = VectorFromStokes(Nk,kx,ky,S11,S12,S13)
-
-    vnew = np.zeros((Nk,Nk,2,2),dtype=np.complex_)
-
-    for k1 in range(Nk):
-       for k2 in range(Nk):
-          for j in range(2):
-             vnew[k1,k2,0,0] = bp0[k1,k2]
-             vnew[k1,k2,1,0] = bm0[k1,k2]
-
-             vnew[k1,k2,0,1] = bp1[k1,k2]
-             vnew[k1,k2,1,1] = bm1[k1,k2]
-
-    CS0,FS0 = chern(Nk,kx,ky,vnew,0,fname14)
-    CS1,FS1 = chern(Nk,kx,ky,vnew,1,fname15)
-
-    print(CS0,CS1)
-    print('Chern number=', int(round(CS0.real)), int(round(CS1.real)))

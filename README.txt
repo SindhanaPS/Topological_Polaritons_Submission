@@ -1,4 +1,5 @@
 ########################################################################################
+Code accompanying manuscript https://doi.org/10.48550/arXiv.2301.03287.
 
 The code 'cav_mol_k_space.py' with:
 

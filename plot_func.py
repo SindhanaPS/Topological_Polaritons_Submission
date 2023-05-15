@@ -77,6 +77,7 @@ def CavExBands1Dbetter(k, E0, E1, E2, E3, Pol0, Pol1, Pol2, Pol3, fname):
         lc.set_array(Pol[:,idx])
         lc.set_linewidth(5)
         line = ax.add_collection(lc)
+        plt.plot(k, E[:,idx], color = 'black', lw=1, linestyle='dashed')
 
     plt.ylim(3.64,3.81)
     plt.xlabel(r'$k_x$ ($\mu$m$^{-1}$)')

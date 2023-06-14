@@ -1,5 +1,5 @@
 ########################################################################################
-Code accompanying manuscript https://doi.org/10.48550/arXiv.2301.03287.
+Code accompanying manuscript https://doi.org/10.1515/nanoph-2023-0158.
 
 The code 'cav_mol_k_space.py' with:
 
